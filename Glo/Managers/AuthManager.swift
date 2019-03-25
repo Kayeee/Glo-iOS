@@ -27,6 +27,8 @@ struct AuthManager {
     }
     
     static func authenticate(completion: @escaping(_ success: Bool, _ error: AuthFailure?) -> Void) {
+        // todo remove. just for testing
+
         let keychain = Keychain(service: "com.branchcutapps.Glo")
         guard let key = keychain["glowPAT"] else {
             completion(false, .noKeychainToken)

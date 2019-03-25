@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Use this section to remove keychain value at app launch (for testing)
+//        let keychain = Keychain(service: "com.branchcutapps.Glo")
+//        do {
+//            try keychain.remove("glowPAT")
+//        } catch {
+//            print("No key")
+//        }
+        
         return true
     }
 

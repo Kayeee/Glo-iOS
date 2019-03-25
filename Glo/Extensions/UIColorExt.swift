@@ -30,22 +30,23 @@ extension UIColor {
     }
     
     static let cardBackground: UIColor = {
-        let color = UIColor(hexFromString: "1C3340")
+        let color = UIColor(hexFromString: "32485b")
         return color
     }()
     
     static let columnBackground: UIColor = {
-        let color = UIColor(hexFromString: "1E2B37")
+        let color = UIColor(hexFromString: "263949")
         return color
     }()
     
     static let boardBackground: UIColor = {
-        let color = UIColor(hexFromString: "191E22")
+        let color = UIColor(hexFromString: "1c252b")
         return color
     }()
     
     static let textFieldBackground: UIColor = {
-        let color = UIColor(hexFromString: "18222B")
+        let color = UIColor(hexFromString: "213341")
         return color
     }()
 }
+

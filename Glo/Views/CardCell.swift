@@ -11,7 +11,7 @@ import UIKit
 class CardCell: UITableViewCell {
 
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var labelsCollectionView: LabelCollectionView!
+    @IBOutlet var subContentView: UIView!
     
     var card: Card!
     
@@ -20,21 +20,27 @@ class CardCell: UITableViewCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+
     }
     
     func setUp(card: Card) {
         self.card = card
         self.titleLabel.text = card.name
         
-        self.labelsCollectionView.delegate = self
-        self.labelsCollectionView.dataSource = self
-        self.labelsCollectionView.register(LabelCell.self, forCellWithReuseIdentifier: "Cell")
-        self.labelsCollectionView.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5);
-        self.labelsCollectionView.allowsSelection = false
         
-        self.labelsCollectionView.reloadData()
+        self.autoresizesSubviews = true
+        self.subContentView.backgroundColor = UIColor.cardBackground
+        self.subContentView.layer.cornerRadius = 10
+        self.subContentView.layer.masksToBounds = true
+        self.titleLabel.layer.cornerRadius = 10
+        self.titleLabel.layer.masksToBounds = true
     }
+    
+
 }
 
 
@@ -53,7 +59,7 @@ extension CardCell: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size = (self.issue.labels![indexPath.row].name as NSString).size(withAttributes: nil)
+        let size = (self.card.labels[indexPath.row].name as NSString).size(withAttributes: nil)
         let height = CGFloat(35)
         return CGSize(width: size.width*1.5 + 20, height: height)
     }

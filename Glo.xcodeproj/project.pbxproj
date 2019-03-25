@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A020779223B76B00079A04B /* DictCodingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A020778223B76B00079A04B /* DictCodingExt.swift */; };
+		0A02078322485DB60079A04B /* CardDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A02078222485DB60079A04B /* CardDetailsVC.swift */; };
 		0A28E55722321C7D00B26174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28E55622321C7D00B26174 /* AppDelegate.swift */; };
 		0A28E55C22321C7D00B26174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A28E55A22321C7D00B26174 /* Main.storyboard */; };
 		0A28E55E22321C7F00B26174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A28E55D22321C7F00B26174 /* Assets.xcassets */; };
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A020778223B76B00079A04B /* DictCodingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictCodingExt.swift; sourceTree = "<group>"; };
+		0A02078222485DB60079A04B /* CardDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsVC.swift; sourceTree = "<group>"; };
 		0A28E55322321C7D00B26174 /* Glo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A28E55622321C7D00B26174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A28E55B22321C7D00B26174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,6 +131,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A02078422485DF80079A04B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		0A28E54A22321C7D00B26174 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +201,7 @@
 			children = (
 				0A28E58422336B9400B26174 /* AuthVC.swift */,
 				0A28E58722336CEE00B26174 /* HomeVC.swift */,
+				0A02078222485DB60079A04B /* CardDetailsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +220,7 @@
 			children = (
 				0A28E5942234A7FB00B26174 /* UIViewControllerExt.swift */,
 				0A28E5982234A97900B26174 /* UIColorExt.swift */,
+				0A020778223B76B00079A04B /* DictCodingExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +228,7 @@
 		0A28E59A2234AFA700B26174 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A02078422485DF80079A04B /* Cells */,
 				0A28E5962234A92800B26174 /* GloTextField.swift */,
 				0A28E5A12235AFE800B26174 /* HomeHeaderView.swift */,
 				0A28E5AD2238A0CA00B26174 /* ColumnView.swift */,
@@ -507,6 +521,7 @@
 				0A28E59222337AAB00B26174 /* AuthManager.swift in Sources */,
 				0A28E5B32239DEAF00B26174 /* CardCell.swift in Sources */,
 				0A28E5A22235AFE800B26174 /* HomeHeaderView.swift in Sources */,
+				0A020779223B76B00079A04B /* DictCodingExt.swift in Sources */,
 				0A28E5BD2239F84200B26174 /* LabelColorView.swift in Sources */,
 				0A28E5972234A92800B26174 /* GloTextField.swift in Sources */,
 				0A28E5A92235BF8F00B26174 /* Card.swift in Sources */,
@@ -517,6 +532,7 @@
 				0A28E58822336CEE00B26174 /* HomeVC.swift in Sources */,
 				0A28E5B92239F70B00B26174 /* Label.swift in Sources */,
 				0A28E58522336B9400B26174 /* AuthVC.swift in Sources */,
+				0A02078322485DB60079A04B /* CardDetailsVC.swift in Sources */,
 				0A28E5BB2239F82500B26174 /* LabelCell.swift in Sources */,
 				0A28E55722321C7D00B26174 /* AppDelegate.swift in Sources */,
 			);

@@ -16,6 +16,10 @@ class HomeHeaderView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.backgroundColor = UIColor.columnBackground
+        self.backgroundColor = UIColor.boardBackground
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.layer.shadowRadius = 3
     }
 }

@@ -19,7 +19,7 @@ extension UIViewController {
         }
     }
     
-    func showLoadingScreen(message: String) {
+    func showLoadingScreen(message: String, completion: @escaping() -> Void) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             
@@ -29,7 +29,9 @@ extension UIViewController {
             loadingIndicator.startAnimating();
             
             alert.view.addSubview(loadingIndicator)
-            self.present(alert, animated: true, completion: nil)
+            self.present(alert, animated: true) {
+                completion()
+            }
         }
     }
 }

@@ -16,25 +16,36 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2az-ED-bv2">
-                    <rect key="frame" x="123" y="147" width="128" height="112"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BFF-ms-Jgb">
+                    <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hik-db-4hn">
+                    <rect key="frame" x="16" y="28" width="343" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Ljw-Qb-bYM"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BFF-ms-Jgb">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="BFF-ms-Jgb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7Zk-eK-tXj"/>
+                <constraint firstItem="BFF-ms-Jgb" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="JkV-B9-ejz"/>
+                <constraint firstItem="BFF-ms-Jgb" firstAttribute="top" secondItem="Hik-db-4hn" secondAttribute="bottom" constant="8" id="KEm-WP-t9D"/>
+                <constraint firstItem="Hik-db-4hn" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="QRL-kV-DIo"/>
+                <constraint firstItem="BFF-ms-Jgb" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ZoR-Yw-69o"/>
+                <constraint firstItem="Hik-db-4hn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="cIe-N0-M2g"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Hik-db-4hn" secondAttribute="trailing" constant="16" id="fWD-f2-Kr9"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="cardsTableView" destination="BFF-ms-Jgb" id="jal-wK-4Oy"/>
+                <outlet property="titleLabel" destination="Hik-db-4hn" id="Ap3-Ig-fVG"/>
             </connections>
-            <point key="canvasLocation" x="138.40000000000001" y="154.27286356821591"/>
+            <point key="canvasLocation" x="-28" y="97.601199400299862"/>
         </view>
     </objects>
 </document>

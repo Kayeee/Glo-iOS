@@ -12,7 +12,7 @@ struct Column: Codable {
     
     fileprivate(set) var id: String
     fileprivate(set) var name: String
-    fileprivate(set) var cards: [Card]?
+    var cards: [Card]?
     fileprivate(set) var boardID: String!
     
     private enum DecodingKeys: String, CodingKey {
@@ -35,5 +35,9 @@ struct Column: Codable {
     
     mutating func setBoardID(id: String) {
         self.boardID = id
+    }
+    
+    mutating func setCards(cards: [Card]) {
+        self.cards = cards
     }
 }

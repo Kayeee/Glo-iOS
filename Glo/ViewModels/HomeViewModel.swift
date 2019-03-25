@@ -6,10 +6,10 @@
 //  Copyright © 2019 Branch Cut. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class HomeViewModel {
-    fileprivate(set) var boards: [Board]
+    var boards: [Board]
     private var selectedBoard: Int?
     
     init(boards: [Board]) {
@@ -22,8 +22,25 @@ class HomeViewModel {
         return boards[boardIndex].name
     }
     
-    func changeSelectedBoard(index: Int) {
+    func changeSelectedBoard(index: Int, completion: @escaping() -> Void) {
         self.selectedBoard = index
+        
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let strongSelf = self else { return }
+            // load cards
+            let group = DispatchGroup()
+            let columns = strongSelf.boards[index].columns
+            for columnIndex in 0..<columns.count {
+                group.enter()
+                GloNetworking.getCards(for: columns[columnIndex]) { cards in
+                    strongSelf.boards[index].columns[columnIndex].setCards(cards: cards)
+                    group.leave()
+                }
+            }
+            group.wait()
+            completion()
+        }
+            
     }
     
     func getColumnsForSelectedBoard() -> [Column] {

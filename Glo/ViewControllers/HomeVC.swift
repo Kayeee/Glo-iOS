@@ -35,7 +35,7 @@ class HomeVC: UIViewController {
                 }
             // User is authenticated, get data
             } else {
-                strongSelf.loadData()
+                strongSelf.loadBoards()
             }
         }
         columnScrollView.delegate = self
@@ -43,9 +43,16 @@ class HomeVC: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Authenticate" {
+        
+        switch segue.identifier {
+        case "Authenticate":
             let dest = segue.destination as! AuthVC
             dest.authDelegate = self
+        case "CardDetails":
+            let dest = segue.destination as! CardDetailsVC
+            dest.card = sender as! Card
+        default:
+            break
         }
     }
     
@@ -56,12 +63,14 @@ class HomeVC: UIViewController {
     
     
     @IBAction func changeBoardAction(_ sender: Any) {
+        columnScrollView.subviews.forEach { $0.removeFromSuperview() }
+        
         let alert = UIAlertController(title: "Boards", message: nil, preferredStyle: .actionSheet)
         
         for (index, board) in viewModel.boards.enumerated() {
-            let action = UIAlertAction(title: board.name, style: .default) { action in
-                self.viewModel.changeSelectedBoard(index: index)
-                self.setViews()
+            let action = UIAlertAction(title: board.name, style: .default) { [weak self] action in
+                guard let strongSelf = self else { return }
+                strongSelf.loadCardsForSelectedBoard(index: index)
             }
             alert.addAction(action)
         }
@@ -69,15 +78,29 @@ class HomeVC: UIViewController {
         self.present(alert, animated: true)
     }
     
+    private func loadCardsForSelectedBoard(index: Int) {
+        self.showLoadingScreen(message: "Loading...") {
+            self.viewModel.changeSelectedBoard(index: index) {
+                self.dismiss(animated: true, completion:  nil)
+                self.setViews()
+            }
+        }
+    }
     
-    private func loadData() {
-        self.showLoadingScreen(message: "Loading Data")
-        
-        GloNetworking.getBoards { [weak self] boards in
-            guard let strongSelf = self else { return }
-            
-            strongSelf.dismiss(animated: true, completion: nil)
-            strongSelf.viewModel = HomeViewModel(boards: boards)
+    private func loadBoards() {
+
+        self.showLoadingScreen(message: "Loading Data") {
+            GloNetworking.getBoards { [weak self] boards in
+                guard let strongSelf = self else { return }
+                
+                strongSelf.viewModel = HomeViewModel(boards: boards)
+                if boards.count > 0 {
+                    strongSelf.viewModel.changeSelectedBoard(index: 0) {
+                        strongSelf.dismiss(animated: true, completion:  nil)
+                        strongSelf.setViews()
+                    }
+                }
+            }
         }
     }
     
@@ -94,11 +117,15 @@ class HomeVC: UIViewController {
     
     
     func setupSlideScrollView(slides : [ColumnView]) {
-        columnScrollView.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count), height: columnScrollView.frame.height)
+        columnScrollView.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count),
+                                              height: columnScrollView.frame.height)
         columnScrollView.isPagingEnabled = true
         
         for i in 0 ..< slides.count {
-            slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: view.frame.height)
+            slides[i].frame = CGRect(x: view.frame.width * CGFloat(i),
+                                     y: 0,
+                                     width: view.frame.width,
+                                     height: columnScrollView.frame.height)
             columnScrollView.addSubview(slides[i])
         }
     }
@@ -118,7 +145,7 @@ class HomeVC: UIViewController {
 
 extension HomeVC: GloAuthenticated {
     func wasAuthenticated() {
-        loadData()
+        loadBoards()
     }
 }
 
@@ -126,5 +153,11 @@ extension HomeVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
+    }
+}
+
+extension HomeVC: SelectedCard {
+    func selectedCard(card: Card) {
+        self.performSegue(withIdentifier: "CardDetails", sender: card)
     }
 }

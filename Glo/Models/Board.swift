@@ -12,7 +12,7 @@ struct Board: Codable {
     
     fileprivate(set) var id: String
     fileprivate(set) var name: String
-    fileprivate(set) var columns: [Column]
+    var columns: [Column]
     
     private enum CodingKeys: String, CodingKey {
         case id

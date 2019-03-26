@@ -136,6 +136,7 @@ class HomeVC: UIViewController {
         for column in viewModel.getColumnsForSelectedBoard() {
             let columnView = Bundle.main.loadNibNamed("ColumnView", owner: self, options: nil)?.first as! ColumnView
             columnView.column = column
+            columnView.selectedCardDelegate = self
             columnViews.append(columnView)
         }
         

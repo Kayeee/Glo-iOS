@@ -32,7 +32,8 @@ class HomeViewModel {
             let columns = strongSelf.boards[index].columns
             for columnIndex in 0..<columns.count {
                 group.enter()
-                GloNetworking.getCards(for: columns[columnIndex]) { cards in
+                let board = strongSelf.boards[strongSelf.selectedBoard!]
+                GloNetworking.getCards(for: columns[columnIndex], board: board) { cards in
                     strongSelf.boards[index].columns[columnIndex].setCards(cards: cards)
                     group.leave()
                 }
@@ -40,11 +41,15 @@ class HomeViewModel {
             group.wait()
             completion()
         }
-            
     }
     
     func getColumnsForSelectedBoard() -> [Column] {
         guard let boardIndex = selectedBoard else { return [] }
         return boards[boardIndex].columns
+    }
+    
+    func getSelectedBoard() -> Board? {
+        guard let selectedboard = self.selectedBoard else { return nil }
+        return self.boards[selectedboard]
     }
 }

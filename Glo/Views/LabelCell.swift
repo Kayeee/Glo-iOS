@@ -15,18 +15,32 @@ class LabelCell: UICollectionViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
-    func setup(text: String) {
+    func setup(label: Label) {
         
-        let label = UILabel(frame: CGRect(x: 3, y: 0, width: self.frame.width, height: self.frame.height))
-        label.font = UIFont(name: "Avenir-Light", size: CGFloat(17))
-        label.text = text
-        label.textColor = .black
-        label.textAlignment = .center
-        label.sizeToFit()
-        self.contentView.addSubview(label)
+        let backView = UIView(frame: CGRect(x: 10, y: 5, width: self.frame.width - 20, height: self.frame.height - 10))
+        self.contentView.addSubview(backView)
+        
+        self.contentView.backgroundColor = .clear
+        self.contentView.clipsToBounds = false
+        self.clipsToBounds = false
+        backView.layer.shadowOffset = .zero
+        backView.layer.shadowColor = label.color.cgColor
+        backView.layer.shadowRadius = 5
+        backView.layer.shadowOpacity = 1
+        backView.layer.shadowPath = UIBezierPath(rect: backView.bounds).cgPath
+        
+        
+        let text = UILabel(frame: CGRect(x: 0, y: 0, width: backView.frame.width, height: backView.frame.height))
+        text.font = UIFont(name: "System", size: CGFloat(17))
+        text.text = label.name
+        text.textColor = label.color.isDarkColor ? .white : .black
+        text.textAlignment = .center
+        backView.addSubview(text)
+        
+
     }
     
     override func prepareForReuse() {

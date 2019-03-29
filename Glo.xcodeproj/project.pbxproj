@@ -37,6 +37,11 @@
 		0A28E5B92239F70B00B26174 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28E5B82239F70B00B26174 /* Label.swift */; };
 		0A28E5BB2239F82500B26174 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28E5BA2239F82500B26174 /* LabelCell.swift */; };
 		0A28E5BD2239F84200B26174 /* LabelColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A28E5BC2239F84200B26174 /* LabelColorView.swift */; };
+		0AAD50DA224C765D00B68E44 /* AssigneesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD50D9224C765D00B68E44 /* AssigneesVC.swift */; };
+		0AAD50DC224C766A00B68E44 /* LabelsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD50DB224C766A00B68E44 /* LabelsVC.swift */; };
+		0AAD50E7224C832300B68E44 /* LabelTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD50E5224C832300B68E44 /* LabelTVCell.swift */; };
+		0AAD50E8224C897000B68E44 /* LabelTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD50E6224C832300B68E44 /* LabelTVCell.xib */; };
+		0AAD50EA224DD2E200B68E44 /* AssigneeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD50E9224DD2E200B68E44 /* AssigneeSelectionCell.swift */; };
 		356B50579DBAF4DE8DDDBEC4 /* Pods_GloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A8AE091014C5B86ABA6CCB /* Pods_GloTests.framework */; };
 		50ED6F479CA3E83C27C99831 /* Pods_GloUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BD5DD8A217A8844C98C917 /* Pods_GloUITests.framework */; };
 		749A9F3F73C4FF383C62295B /* Pods_Glo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529A3E1F1B88943E02DDE4D0 /* Pods_Glo.framework */; };
@@ -96,6 +101,11 @@
 		0A28E5B82239F70B00B26174 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		0A28E5BA2239F82500B26174 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		0A28E5BC2239F84200B26174 /* LabelColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelColorView.swift; sourceTree = "<group>"; };
+		0AAD50D9224C765D00B68E44 /* AssigneesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneesVC.swift; sourceTree = "<group>"; };
+		0AAD50DB224C766A00B68E44 /* LabelsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelsVC.swift; sourceTree = "<group>"; };
+		0AAD50E5224C832300B68E44 /* LabelTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabelTVCell.swift; path = /Users/kevin/Documents/Xcode_Projects/Glo/Glo/Views/Cells/LabelTVCell.swift; sourceTree = "<absolute>"; };
+		0AAD50E6224C832300B68E44 /* LabelTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LabelTVCell.xib; path = /Users/kevin/Documents/Xcode_Projects/Glo/Glo/Views/Cells/LabelTVCell.xib; sourceTree = "<absolute>"; };
+		0AAD50E9224DD2E200B68E44 /* AssigneeSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeSelectionCell.swift; sourceTree = "<group>"; };
 		0D7D58675F2AB500462BD952 /* Pods-GloUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GloUITests.debug.xcconfig"; path = "Target Support Files/Pods-GloUITests/Pods-GloUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B10806ADA6158D0FB95E8BA /* Pods-Glo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glo.debug.xcconfig"; path = "Target Support Files/Pods-Glo/Pods-Glo.debug.xcconfig"; sourceTree = "<group>"; };
 		3D34B31121C9CFB3C257FC60 /* Pods-GloUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GloUITests.release.xcconfig"; path = "Target Support Files/Pods-GloUITests/Pods-GloUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +148,11 @@
 		0A02078422485DF80079A04B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0A28E5B12239DEAF00B26174 /* CardCell.swift */,
+				0A28E5B22239DEAF00B26174 /* CardCell.xib */,
+				0AAD50E5224C832300B68E44 /* LabelTVCell.swift */,
+				0AAD50E6224C832300B68E44 /* LabelTVCell.xib */,
+				0AAD50E9224DD2E200B68E44 /* AssigneeSelectionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -206,6 +221,8 @@
 				0A28E58422336B9400B26174 /* AuthVC.swift */,
 				0A28E58722336CEE00B26174 /* HomeVC.swift */,
 				0A02078222485DB60079A04B /* CardDetailsVC.swift */,
+				0AAD50D9224C765D00B68E44 /* AssigneesVC.swift */,
+				0AAD50DB224C766A00B68E44 /* LabelsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -237,8 +254,6 @@
 				0A28E5A12235AFE800B26174 /* HomeHeaderView.swift */,
 				0A28E5AD2238A0CA00B26174 /* ColumnView.swift */,
 				0A28E5AF2238A0D800B26174 /* ColumnView.xib */,
-				0A28E5B12239DEAF00B26174 /* CardCell.swift */,
-				0A28E5B22239DEAF00B26174 /* CardCell.xib */,
 				0A28E5B62239F4DF00B26174 /* LabelCollectionView.swift */,
 				0A28E5BA2239F82500B26174 /* LabelCell.swift */,
 				0A28E5BC2239F84200B26174 /* LabelColorView.swift */,
@@ -400,6 +415,7 @@
 			files = (
 				0A28E5B02238A0D800B26174 /* ColumnView.xib in Resources */,
 				0A28E56122321C7F00B26174 /* LaunchScreen.storyboard in Resources */,
+				0AAD50E8224C897000B68E44 /* LabelTVCell.xib in Resources */,
 				0A28E5B42239DEAF00B26174 /* CardCell.xib in Resources */,
 				0A28E55E22321C7F00B26174 /* Assets.xcassets in Resources */,
 				0A28E55C22321C7D00B26174 /* Main.storyboard in Resources */,
@@ -527,6 +543,7 @@
 				0A28E59222337AAB00B26174 /* AuthManager.swift in Sources */,
 				0A28E5B32239DEAF00B26174 /* CardCell.swift in Sources */,
 				0A28E5A22235AFE800B26174 /* HomeHeaderView.swift in Sources */,
+				0AAD50DA224C765D00B68E44 /* AssigneesVC.swift in Sources */,
 				0A020779223B76B00079A04B /* DictCodingExt.swift in Sources */,
 				0A0207882249D8120079A04B /* CustomCodables.swift in Sources */,
 				0A28E5BD2239F84200B26174 /* LabelColorView.swift in Sources */,
@@ -538,8 +555,11 @@
 				0A28E5AE2238A0CA00B26174 /* ColumnView.swift in Sources */,
 				0A28E58822336CEE00B26174 /* HomeVC.swift in Sources */,
 				0A28E5B92239F70B00B26174 /* Label.swift in Sources */,
+				0AAD50DC224C766A00B68E44 /* LabelsVC.swift in Sources */,
 				0A28E58522336B9400B26174 /* AuthVC.swift in Sources */,
 				0A02078322485DB60079A04B /* CardDetailsVC.swift in Sources */,
+				0AAD50E7224C832300B68E44 /* LabelTVCell.swift in Sources */,
+				0AAD50EA224DD2E200B68E44 /* AssigneeSelectionCell.swift in Sources */,
 				0A28E5BB2239F82500B26174 /* LabelCell.swift in Sources */,
 				0A28E55722321C7D00B26174 /* AppDelegate.swift in Sources */,
 				0A0207862248652E0079A04B /* Member.swift in Sources */,

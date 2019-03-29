@@ -34,11 +34,8 @@ struct Card: Codable {
         try container.encode(name, forKey: .name)
         let descriptObj = ["text": description ?? ""]
         try container.encode(descriptObj, forKey: .description)
-//        let assignees = assignee != nil ? [assignee?.UUID] : []
-//        try container.encode(assignees, forKey: .assignee_ids)
-//        try container.encode(milestone?.UUID, forKey: .milestone_id)
-//        let labelsString = labels?.compactMap { String($0.name) }.joined(separator: ", ")
-//        try container.encode(labelsString, forKey: .labels)
+        try container.encode(assignees, forKey: .assignees)
+        try container.encode(labels, forKey: .labels)
     }
     
     

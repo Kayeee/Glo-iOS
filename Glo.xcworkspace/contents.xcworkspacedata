@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/kevin/Documents/Xcode_Projects/Glo/Glo/Views/Cells/LabelTVCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/kevin/Documents/Xcode_Projects/Glo/Glo/Views/Cells/LabelTVCell.xib">
+   </FileRef>
+   <FileRef
       location = "group:Glo.xcodeproj">
    </FileRef>
    <FileRef

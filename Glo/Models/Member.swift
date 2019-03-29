@@ -22,15 +22,13 @@ struct Member: Codable {
         case role
     }
     
-    private enum DecodingKeys: String, CodingKey {
-        case id
-        case username
-        case name
-        case role
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
     }
     
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: DecodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         let id = try container.decode(String.self, forKey: .id)
         let name = try container.decode(String.self, forKey: .name)
         let username = try container.decode(String.self, forKey: .username)

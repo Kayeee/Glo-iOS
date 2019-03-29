@@ -30,8 +30,7 @@ class CardCell: UITableViewCell {
     func setUp(card: Card) {
         self.card = card
         self.titleLabel.text = card.name
-        
-        
+           
         self.autoresizesSubviews = true
         self.subContentView.backgroundColor = UIColor.cardBackground
         self.subContentView.layer.cornerRadius = 10
@@ -39,8 +38,6 @@ class CardCell: UITableViewCell {
         self.titleLabel.layer.cornerRadius = 10
         self.titleLabel.layer.masksToBounds = true
     }
-    
-
 }
 
 
@@ -52,7 +49,7 @@ extension CardCell: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! LabelCell
         let label = self.card.labels[indexPath.row]
-        cell.setup(text: label.name)
+        cell.setup(label: label)
         
         return cell
     }

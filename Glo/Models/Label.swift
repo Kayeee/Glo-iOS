@@ -21,16 +21,11 @@ struct AbstractLabel: Codable {
         case name
     }
     
-    private enum DecodingKeys: String, CodingKey {
-        case id
-        case name
-    }
-    
+
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: DecodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         let id = try container.decode(String.self, forKey: .id)
         let name = try container.decode(String.self, forKey: .name)
-        
         
         self.init(id: id, name: name)
     }
@@ -50,16 +45,17 @@ struct Label: Codable {
     private enum CodingKeys: String, CodingKey {
         case id
         case name
-    }
-    
-    private enum DecodingKeys: String, CodingKey {
-        case id
-        case name
         case color
     }
     
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+    }
+    
+    
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: DecodingKeys.self)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
         let id = try container.decode(String.self, forKey: .id)
         let name = try container.decode(String.self, forKey: .name)
         let color = try container.decode(Dictionary<String, Any>.self, forKey: .color)

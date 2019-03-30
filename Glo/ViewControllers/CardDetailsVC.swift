@@ -39,12 +39,14 @@ class CardDetailsVC: UIViewController {
         self.view.backgroundColor = UIColor.columnBackground
         
         let assigneesTap = UITapGestureRecognizer(target: self, action: #selector(segueToAssignees))
+        let assigneesTap2 = UITapGestureRecognizer(target: self, action: #selector(segueToAssignees))
         self.assigneesLabel.addGestureRecognizer(assigneesTap)
-        self.assigneesTableView.addGestureRecognizer(assigneesTap)
+        self.assigneesTableView.addGestureRecognizer(assigneesTap2)
         
         let labelsTap = UITapGestureRecognizer(target: self, action: #selector(segueToLabels))
+        let labelsTap2 = UITapGestureRecognizer(target: self, action: #selector(segueToLabels))
         self.labelsLabel.addGestureRecognizer(labelsTap)
-        self.labelCollectionView.addGestureRecognizer(labelsTap)
+        self.labelCollectionView.addGestureRecognizer(labelsTap2)
         
         
         nameField.text = card.name
@@ -64,9 +66,17 @@ class CardDetailsVC: UIViewController {
         self.showLoadingScreen(message: "Saving..") { [weak self] in
             guard let strongSelf = self else { return }
             
-            GloNetworking.updateCard(for: strongSelf.card) { error in
-                strongSelf.dismiss(animated: true) {
-                    self?.dismiss(animated: true, completion: nil)
+            if strongSelf.card.id != nil {
+                GloNetworking.updateCard(for: strongSelf.card) { error in
+                    strongSelf.dismiss(animated: true) {
+                        self?.dismiss(animated: true, completion: nil)
+                    }
+                }
+            } else {
+                GloNetworking.createCard(for: strongSelf.card) { error, newCardID in
+                    strongSelf.dismiss(animated: true) {
+                        self?.dismiss(animated: true, completion: nil)
+                    }
                 }
             }
         }

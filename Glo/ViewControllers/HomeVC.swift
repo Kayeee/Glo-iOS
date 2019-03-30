@@ -50,15 +50,26 @@ class HomeVC: UIViewController {
             dest.authDelegate = self
         case "CardDetails":
             let dest = segue.destination as! CardDetailsVC
-            dest.card = sender as! Card
+            dest.card = sender as? Card
+        case "NewCard":
+            print(pageControl.currentPage)
+            let dest = segue.destination as! CardDetailsVC
+            dest.card = Card(id: nil, name: "Title", description: nil, labelIDs: [], assigneeIDs: [])
+            dest.card.board = viewModel.getSelectedBoard()
+            // We are checking that a column exists for this page in the "addCardAction" so the next line is safe
+            dest.card.column = viewModel.getColumnsForSelectedBoard()[pageControl.currentPage]
         default:
             break
         }
     }
     
-    
     @IBAction func addCardAction(_ sender: Any) {
-        print("Add Card Action")
+        print(pageControl.currentPage)
+        if pageControl.currentPage < viewModel.getColumnsForSelectedBoard().count {
+            self.performSegue(withIdentifier: "NewCard", sender: self)
+        } else {
+            self.displayErrorAlertWithOK(title: "Error", message: "Cannot add card to board with no columns")
+        }
     }
     
     

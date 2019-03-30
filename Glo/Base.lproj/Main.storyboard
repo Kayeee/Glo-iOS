@@ -133,6 +133,7 @@
                         <outlet property="selectedBoardbutton" destination="Fpd-c9-Uh6" id="ogi-KX-Vbr"/>
                         <segue destination="3uO-U5-xz3" kind="presentation" identifier="Authenticate" id="MD8-jy-bCP"/>
                         <segue destination="9Fu-Wp-8HX" kind="presentation" identifier="CardDetails" id="GA1-Sc-f0i"/>
+                        <segue destination="9Fu-Wp-8HX" kind="presentation" identifier="NewCard" id="BN4-gq-yCq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzl-0t-VcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -153,7 +154,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBr-xZ-gUi">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="70"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sample Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXO-gf-YCl" userLabel="Name Text Field">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sample Text" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KXO-gf-YCl" userLabel="Name Text Field">
                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="71"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -527,4 +528,7 @@
         <image name="round_add_white_36pt" width="72" height="72"/>
         <image name="round_person_white_36pt" width="72" height="72"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BN4-gq-yCq"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -42,6 +42,7 @@
 		0AAD50E7224C832300B68E44 /* LabelTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD50E5224C832300B68E44 /* LabelTVCell.swift */; };
 		0AAD50E8224C897000B68E44 /* LabelTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAD50E6224C832300B68E44 /* LabelTVCell.xib */; };
 		0AAD50EA224DD2E200B68E44 /* AssigneeSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD50E9224DD2E200B68E44 /* AssigneeSelectionCell.swift */; };
+		0AAD50EC224F34C800B68E44 /* CollectionExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD50EB224F34C800B68E44 /* CollectionExt.swift */; };
 		356B50579DBAF4DE8DDDBEC4 /* Pods_GloTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A8AE091014C5B86ABA6CCB /* Pods_GloTests.framework */; };
 		50ED6F479CA3E83C27C99831 /* Pods_GloUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2BD5DD8A217A8844C98C917 /* Pods_GloUITests.framework */; };
 		749A9F3F73C4FF383C62295B /* Pods_Glo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529A3E1F1B88943E02DDE4D0 /* Pods_Glo.framework */; };
@@ -106,6 +107,7 @@
 		0AAD50E5224C832300B68E44 /* LabelTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LabelTVCell.swift; path = /Users/kevin/Documents/Xcode_Projects/Glo/Glo/Views/Cells/LabelTVCell.swift; sourceTree = "<absolute>"; };
 		0AAD50E6224C832300B68E44 /* LabelTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LabelTVCell.xib; path = /Users/kevin/Documents/Xcode_Projects/Glo/Glo/Views/Cells/LabelTVCell.xib; sourceTree = "<absolute>"; };
 		0AAD50E9224DD2E200B68E44 /* AssigneeSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeSelectionCell.swift; sourceTree = "<group>"; };
+		0AAD50EB224F34C800B68E44 /* CollectionExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExt.swift; sourceTree = "<group>"; };
 		0D7D58675F2AB500462BD952 /* Pods-GloUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GloUITests.debug.xcconfig"; path = "Target Support Files/Pods-GloUITests/Pods-GloUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B10806ADA6158D0FB95E8BA /* Pods-Glo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Glo.debug.xcconfig"; path = "Target Support Files/Pods-Glo/Pods-Glo.debug.xcconfig"; sourceTree = "<group>"; };
 		3D34B31121C9CFB3C257FC60 /* Pods-GloUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GloUITests.release.xcconfig"; path = "Target Support Files/Pods-GloUITests/Pods-GloUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				0A28E5942234A7FB00B26174 /* UIViewControllerExt.swift */,
 				0A28E5982234A97900B26174 /* UIColorExt.swift */,
 				0A020778223B76B00079A04B /* DictCodingExt.swift */,
+				0AAD50EB224F34C800B68E44 /* CollectionExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				0A28E5AE2238A0CA00B26174 /* ColumnView.swift in Sources */,
 				0A28E58822336CEE00B26174 /* HomeVC.swift in Sources */,
 				0A28E5B92239F70B00B26174 /* Label.swift in Sources */,
+				0AAD50EC224F34C800B68E44 /* CollectionExt.swift in Sources */,
 				0AAD50DC224C766A00B68E44 /* LabelsVC.swift in Sources */,
 				0A28E58522336B9400B26174 /* AuthVC.swift in Sources */,
 				0A02078322485DB60079A04B /* CardDetailsVC.swift in Sources */,

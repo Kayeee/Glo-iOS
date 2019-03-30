@@ -10,6 +10,13 @@ import Foundation
 import Alamofire
 import KeychainAccess
 
+class AuthKeyError: Error {
+    init() {}
+}
+
+class CardIdError: Error {
+    init() {}
+}
 
 struct GloNetworking {
     
@@ -162,9 +169,10 @@ struct GloNetworking {
     }
     
     static func updateCard(for card: Card, completion: @escaping(_ error: Error?) -> Void) {
-        guard let key = AuthManager.getkey() else { return }
+        guard let key = AuthManager.getkey() else { completion(AuthKeyError()); return }
+        guard let cardId = card.id else { completion(CardIdError()); return }
         
-        let url = baseURL + "boards/\(card.board.id)/cards/\(card.id)"
+        let url = baseURL + "boards/\(card.board.id)/cards/\(cardId)"
         
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -183,6 +191,41 @@ struct GloNetworking {
                 completion(nil)
             case .failure(let error):
                 completion(error)
+            }
+        }
+    }
+    
+    static func createCard(for card: Card, completion: @escaping(_ error: Error?, _ card: Card?) -> Void) {
+        guard let key = AuthManager.getkey() else { completion(AuthKeyError(), nil); return }
+        
+        let url = baseURL + "boards/\(card.board.id)/cards"
+        
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.allHTTPHeaderFields = ["Content-Type": "application/json", "Authorization": "Bearer \(key)"]
+        
+        let encoder = JSONEncoder()
+        let data = try! encoder.encode(card)
+        
+        request.httpBody = data
+        
+        print("Data: \(String(decoding: data, as: UTF8.self))")
+        
+        Alamofire.request(request).validate().responseData { (response) in
+            switch response.result {
+            case .success:
+                do {
+                    let data = response.result.value!
+                    var newCard = try JSONDecoder().decode(Card.self, from: data)
+                    newCard.setBoardValues(for: card.board)
+                    newCard.column = card.column
+                    completion(nil, newCard)
+                } catch {
+                    print("error")
+                    completion(error, nil)
+                }
+            case .failure(let error):
+                completion(error, nil)
             }
         }
     }

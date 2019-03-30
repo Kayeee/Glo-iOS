@@ -10,7 +10,7 @@ import Foundation
 
 struct Card: Codable {
     
-    fileprivate(set) var id: String
+    fileprivate(set) var id: String?
     var name: String
     var description: String?
     var column: Column!
@@ -27,6 +27,7 @@ struct Card: Codable {
         case description
         case labels
         case assignees
+        case column_id
     }
     
     func encode(to encoder: Encoder) throws {
@@ -36,6 +37,7 @@ struct Card: Codable {
         try container.encode(descriptObj, forKey: .description)
         try container.encode(assignees, forKey: .assignees)
         try container.encode(labels, forKey: .labels)
+        try container.encode(column.id, forKey: .column_id)
     }
     
     
@@ -56,7 +58,7 @@ struct Card: Codable {
     }
     
     
-    init(id: String, name: String, description: String?, labelIDs: [CodableID], assigneeIDs: [CodableID]) {
+    init(id: String?, name: String, description: String?, labelIDs: [CodableID], assigneeIDs: [CodableID]) {
         self.id = id
         self.name = name
         self.description = description

@@ -50,10 +50,12 @@ class HomeVC: UIViewController {
             dest.authDelegate = self
         case "CardDetails":
             let dest = segue.destination as! CardDetailsVC
+            dest.savedCardDelegate = self
             dest.card = sender as? Card
         case "NewCard":
             print(pageControl.currentPage)
             let dest = segue.destination as! CardDetailsVC
+            dest.savedCardDelegate = self
             dest.card = Card(id: nil, name: "Title", description: nil, labelIDs: [], assigneeIDs: [])
             dest.card.board = viewModel.getSelectedBoard()
             // We are checking that a column exists for this page in the "addCardAction" so the next line is safe
@@ -171,5 +173,17 @@ extension HomeVC: UIScrollViewDelegate {
 extension HomeVC: SelectedCard {
     func selectedCard(card: Card) {
         self.performSegue(withIdentifier: "CardDetails", sender: card)
+    }
+}
+
+extension HomeVC: SavedCard {
+    func savedCard(card: Card) {
+        self.viewModel.updateCard(card: card)
+        self.setViews()
+    }
+    
+    func savedNewCard(card: Card) {
+        self.viewModel.addCard(card: card)
+        self.setViews()
     }
 }

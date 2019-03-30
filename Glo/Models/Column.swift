@@ -40,4 +40,19 @@ struct Column: Codable {
     mutating func setCards(cards: [Card]) {
         self.cards = cards
     }
+    
+    mutating func updateCard(card: Card) {
+        for (c, oldCard) in (self.cards ?? []).enumerated() {
+            if oldCard.id! == card.id! {
+                self.cards?[c] = card
+            }
+        }
+    }
+    
+    mutating func addCard(card: Card) {
+        if self.cards == nil {
+            self.cards = []
+        }
+        self.cards?.append(card)
+    }
 }

@@ -52,4 +52,27 @@ class HomeViewModel {
         guard let selectedboard = self.selectedBoard else { return nil }
         return self.boards[selectedboard]
     }
+    
+    func updateCard(card: Card) {
+        guard let selBoard = selectedBoard else { return }
+        
+        // update the card within the
+        for (i, column) in boards[selBoard].columns.enumerated() {
+            if column.id == card.column.id {
+                boards[selBoard].columns[i].updateCard(card: card)
+            }
+        }
+    }
+    
+    func addCard(card: Card) {
+        guard let selBoard = selectedBoard else { return }
+        
+        // update the card within the
+        for (i, column) in boards[selBoard].columns.enumerated() {
+            if column.id == card.column.id {
+                boards[selBoard].columns[i].addCard(card: card)
+            }
+        }
+        print("here")
+    }
 }

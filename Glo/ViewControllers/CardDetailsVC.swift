@@ -10,6 +10,7 @@ import UIKit
 
 protocol SavedCard {
     func savedCard(card: Card)
+    func savedNewCard(card: Card)
 }
 
 class CardDetailsVC: UIViewController {
@@ -69,12 +70,17 @@ class CardDetailsVC: UIViewController {
             if strongSelf.card.id != nil {
                 GloNetworking.updateCard(for: strongSelf.card) { error in
                     strongSelf.dismiss(animated: true) {
+                        strongSelf.savedCardDelegate.savedCard(card: strongSelf.card)
                         self?.dismiss(animated: true, completion: nil)
                     }
                 }
             } else {
-                GloNetworking.createCard(for: strongSelf.card) { error, newCardID in
+                GloNetworking.createCard(for: strongSelf.card) { [weak self] error, newCard in
+                    guard let strongSelf = self else { return }
+                    guard let newCard = newCard else { return }
+                    
                     strongSelf.dismiss(animated: true) {
+                        strongSelf.savedCardDelegate.savedNewCard(card: newCard)
                         self?.dismiss(animated: true, completion: nil)
                     }
                 }

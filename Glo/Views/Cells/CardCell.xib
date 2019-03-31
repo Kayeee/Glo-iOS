@@ -23,21 +23,41 @@
                         <rect key="frame" x="10" y="10" width="300" height="107.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sdJ-l4-gEm">
-                                <rect key="frame" x="5" y="5" width="290" height="97.5"/>
+                                <rect key="frame" x="5" y="5" width="295" height="97.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4m-bg-O5V">
-                                        <rect key="frame" x="0.0" y="0.0" width="290" height="32.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="32.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcM-ka-Mwb">
-                                        <rect key="frame" x="0.0" y="37.5" width="290" height="60"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <rect key="frame" x="0.0" y="37.5" width="295" height="60"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="lD3-wG-yeb">
+                                                <rect key="frame" x="8" y="12" width="287" height="36"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LT0-OD-qsH">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="KGk-i7-Jjw" id="4it-dA-oij"/>
+                                                    <outlet property="delegate" destination="KGk-i7-Jjw" id="R6I-Sn-D3X"/>
+                                                </connections>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="9C7-W7-TQL"/>
+                                            <constraint firstItem="lD3-wG-yeb" firstAttribute="top" secondItem="zcM-ka-Mwb" secondAttribute="top" constant="12" id="QMS-m8-ASX"/>
+                                            <constraint firstAttribute="trailing" secondItem="lD3-wG-yeb" secondAttribute="trailing" id="aAW-1a-Dvn"/>
+                                            <constraint firstAttribute="bottom" secondItem="lD3-wG-yeb" secondAttribute="bottom" constant="12" id="cvy-Bl-9cE"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="k4Q-cI-nrM"/>
+                                            <constraint firstItem="lD3-wG-yeb" firstAttribute="leading" secondItem="zcM-ka-Mwb" secondAttribute="leading" constant="8" id="nSe-0I-hl0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -54,7 +74,7 @@
                             <constraint firstAttribute="bottom" secondItem="sdJ-l4-gEm" secondAttribute="bottom" constant="5" id="EhJ-6m-dlo"/>
                             <constraint firstItem="sdJ-l4-gEm" firstAttribute="top" secondItem="bbc-E2-29u" secondAttribute="top" constant="5" id="KFn-V7-5Ea"/>
                             <constraint firstItem="sdJ-l4-gEm" firstAttribute="leading" secondItem="bbc-E2-29u" secondAttribute="leading" constant="5" id="gHE-9T-Njm"/>
-                            <constraint firstAttribute="trailing" secondItem="sdJ-l4-gEm" secondAttribute="trailing" constant="5" id="nxK-zx-qhk"/>
+                            <constraint firstAttribute="trailing" secondItem="sdJ-l4-gEm" secondAttribute="trailing" id="nxK-zx-qhk"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -69,6 +89,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="labelCollectionView" destination="lD3-wG-yeb" id="b1O-hZ-AJX"/>
                 <outlet property="subContentView" destination="bbc-E2-29u" id="fWg-Vn-hn6"/>
                 <outlet property="titleLabel" destination="H4m-bg-O5V" id="Ndo-E8-xXi"/>
             </connections>

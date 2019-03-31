@@ -73,6 +73,5 @@ class HomeViewModel {
                 boards[selBoard].columns[i].addCard(card: card)
             }
         }
-        print("here")
     }
 }

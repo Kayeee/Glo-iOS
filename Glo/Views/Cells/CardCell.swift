@@ -13,6 +13,7 @@ class CardCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subContentView: UIView!
     
+    @IBOutlet var labelCollectionView: UICollectionView!
     var card: Card!
     
     override func awakeFromNib() {
@@ -30,6 +31,8 @@ class CardCell: UITableViewCell {
     func setUp(card: Card) {
         self.card = card
         self.titleLabel.text = card.name
+        
+        self.labelCollectionView.register(LabelCell.self, forCellWithReuseIdentifier: "Cell")
            
         self.autoresizesSubviews = true
         self.subContentView.backgroundColor = UIColor.cardBackground

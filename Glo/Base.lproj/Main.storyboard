@@ -94,6 +94,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="round_person_white_36pt"/>
+                                        <connections>
+                                            <action selector="profileAction:" destination="BlM-wv-Qex" eventType="touchUpInside" id="AlC-75-wE2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpd-c9-Uh6">
                                         <rect key="frame" x="66" y="32" width="243" height="47"/>
@@ -500,7 +503,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.10980392160000001" green="0.1450980392" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.11764705882352941" green="0.16862745098039217" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mAv-zc-XNW" firstAttribute="leading" secondItem="t1E-uk-EfE" secondAttribute="leading" constant="90" id="1v0-zF-hbC"/>
                             <constraint firstItem="mAv-zc-XNW" firstAttribute="top" secondItem="t1E-uk-EfE" secondAttribute="top" constant="25" id="B4q-ly-NuA"/>

@@ -74,6 +74,24 @@ class HomeVC: UIViewController {
         }
     }
     
+    @IBAction func profileAction(_ sender: Any) {
+        let alert = UIAlertController(title: "Profile", message: nil, preferredStyle: .actionSheet)
+        
+        let action = UIAlertAction(title: "Logout", style: .default) { action in
+            let keychain = Keychain(service: "com.branchcutapps.Glo")
+            do {
+                try keychain.remove("glowPAT")
+            } catch {
+                print("No token found")
+            }
+            self.columnScrollView.subviews.forEach { $0.removeFromSuperview() }
+            self.performSegue(withIdentifier: "Authenticate", sender: self)
+        }
+        
+        alert.addAction(action)
+        alert.addAction(UIAlertAction.cancelAction)
+        self.present(alert, animated: true)
+    }
     
     @IBAction func changeBoardAction(_ sender: Any) {
         columnScrollView.subviews.forEach { $0.removeFromSuperview() }
